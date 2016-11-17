@@ -1,12 +1,12 @@
 <div class="opening-screen">
   <div class="intro">
-    <h1> Welcome to hangman </h1>
+    <h1>{{ dictionary.getTexts('welcome') }}</h1>
     <span role="game-description">
-      Hangman is used often by teachers to practice spelling and just for fun. The most popular way to play hangman games offline is to draw blank letters for the chosen word on a paper or on the blackboard and let the players guess the letters. For each incorrect guess, another part of the man is drawn. If the picture is complete before the word is revealed the hangman game is lost and the character is hanged, if the word is revealed before the execution the game is won.
+      {{ dictionary.getTexts('welcomeDescription') }}
     </span>
     <button 
       (click)="startGame()"
       class="btn btn-primary"
-      >Start game</button>
+      >{{ dictionary.getTexts('startNewGame') }}</button>
   </div>
 </div>

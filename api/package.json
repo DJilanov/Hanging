@@ -1,5 +1,5 @@
 {
-  "name": "westernacher-user-spa-backend",
+  "name": "hangman-spa-backend",
   "version": "1.0.0",
   "description": "We are using it to controll the things that are done to the backend",
   "main": "server.js",

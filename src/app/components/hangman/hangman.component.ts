@@ -12,14 +12,21 @@ export class HangmanComponent {
     private hangedCounter:number = 0;
     private maxHangedCounter:number = 6;
 
+    /**
+    * @increaseHanged used to check do we have that letter or increase hanged counter
+    * @eventData {Object} event data
+    */  
     private increaseHanged(eventData: Event) {
-        if(this.hangedCounter < this.maxHangedCounter) {
-            this.hangedCounter++;
-        } else {
+        this.hangedCounter++;
+        if(this.hangedCounter == this.maxHangedCounter) {
             this.eventEmiterService.emitHanged({});
         }
     }
 
+    /**
+    * @resetHanged used to reset hanged counter on new word fetch
+    * @eventData {Object} event data
+    */  
     private resetHanged(eventData: Event) {
         this.hangedCounter = 0;
     }

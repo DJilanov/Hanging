@@ -8,10 +8,10 @@ export class Config {
     public static get languages():Array<string> { return ['bg', 'en']; }
     public static get hearthBeatIntervalInSeconds():number { return 20; }
     // urls
-    public static get getUnknownWord():string { return "http://4055c814.ngrok.io/api/getUnknownWord"; }
-    public static get heartbeatUrl():string { return "http://4055c814.ngrok.io/api/heartbeat"; }
+    // public static get getUnknownWord():string { return "http://4055c814.ngrok.io/api/getUnknownWord"; }
+    // public static get heartbeatUrl():string { return "http://4055c814.ngrok.io/api/heartbeat"; }
 
     // staging
-    // public static get getUnknownWord():string { return "https://morning-oasis-39757.herokuapp.com/api/getUnknownWord"; }
-    // public static get heartbeatUrl():string { return "https://morning-oasis-39757.herokuapp.com/api/heartbeat"; }
+    public static get getUnknownWord():string { return "https://afternoon-anchorage-50297.herokuapp.com/api/getUnknownWord"; }
+    public static get heartbeatUrl():string { return "https://afternoon-anchorage-50297.herokuapp.com/api/heartbeat"; }
 }

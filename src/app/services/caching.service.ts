@@ -11,7 +11,7 @@ import { Config } from '../config';
  * @CachingService used to cache the data to have offline mode
  */
 export class CachingService {
-    // TODO: cache the users in the front-end localstorage
+    // used to contain the words list from the localstorage
     private knownWordsList;
 
     /**

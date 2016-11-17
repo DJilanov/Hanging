@@ -34,6 +34,7 @@ export class ErrorHandlerService {
     */
     public handleError(err):void {
         this.emitOfflineMode();
+        this.eventEmiterService.emitFetchedData(this.cachingService.getKnownWord());
     }
 
     /**

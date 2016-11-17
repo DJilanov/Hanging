@@ -1,11 +1,21 @@
 <div class="game-screen">
-  <div class="game">
-    <h1> Guess the word </h1>
-    <div class="guessed-word">
-      <span 
-        *ngFor="let letter of guessedWordArray"
-        class="letter"
-        >{{letter}}</span>
-    </div>
+  <h1>{{ dictionary.getTexts('guessTheWord') }}</h1>
+  <div class="guessed-word">
+    <span 
+      *ngFor="let letter of guessedWordArray"
+      class="letter"
+      >{{letter}}</span>
   </div>
+  <h2>{{ dictionary.getTexts('wrongLetters') }}</h2>
+  <div class="wrong-letters">
+    <span 
+      *ngFor="let letter of wrongLettersArray"
+      class="letter"
+      >{{letter}}</span>
+  </div>
+  <button 
+    *ngIf="isHanged" 
+    (click)="startGame()"
+    class="btn btn-primary"
+    >{{ dictionary.getTexts('startNewGame') }}</button>
 </div>

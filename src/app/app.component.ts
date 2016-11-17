@@ -21,8 +21,8 @@ export class AppComponent {
     private word: Word;
 
     /**
-    * @updateUser handle heart beat response
-    * @options<object> Form data with user changes
+    * @getWord used to get new word for the game
+    * @eventData {Object} event data
     */
     private getWord(eventData: Event):void {
         let knownWords = this.cachingService.getKnownWords();
@@ -41,13 +41,14 @@ export class AppComponent {
                 body: this.dictionary.getTexts('offlineUpdate'),
                 showCloseButton: true
             });
-            // TODO: SET A WORD FROM THE KNOWN ONES
+            // set word from the known one ( offline )
+            this.setWord(this.cachingService.getKnownWord());
         }
         
     }
 
     /**
-    * @fetchedData emit that we work online and set the users that we fetch from the back-end
+    * @fetchedWord emit that we work online and set the word that we fetch from the back-end
     * @users <User[]> The users from the API
     */
     private fetchedWord(word) {
@@ -56,8 +57,8 @@ export class AppComponent {
     }
 
     /**
-    * @setUsers we set the users to the app
-    * @users <User[]> The users from the API
+    * @setWord we set the words to the app
+    * @users <Word[]> The users from the API
     */
     private setWord(word) {
         this.word = <Word>word;

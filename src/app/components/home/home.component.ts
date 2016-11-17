@@ -11,6 +11,10 @@ export class HomeComponent {
 
     private showOpeningScreen: boolean = true;
 
+    /**
+    * @hideOpeningScreen used to hide the opening screen and show the game
+    * @eventData {Object} event data
+    */
     private hideOpeningScreen(eventData:Event):void {
         this.showOpeningScreen = false;
     }

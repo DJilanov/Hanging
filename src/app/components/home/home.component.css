@@ -1,4 +1,6 @@
-opening-screen, hangman {
+opening-screen,
+game-screen,
+hangman  {
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -9,4 +11,8 @@ opening-screen, hangman {
 
 opening-screen {
     width: 100%;
+}
+
+game-screen {
+    text-align: center;
 }

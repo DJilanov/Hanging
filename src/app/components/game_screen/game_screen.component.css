@@ -1,8 +1,5 @@
-.opening-screen {
+.guessed-word {
     text-align: center;
-    width: 50%;
+    margin:30px;
 }
 
-.opening-screen button {
-    margin-top: 10px;
-}

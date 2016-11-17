@@ -8,14 +8,23 @@ import { EventEmiterService } from '../../services/event.emiter.service';
 })
 // will be screen into the router in the later stage
 export class GameScreenComponent {
+
+    private word: string;
+    private guessedWordArray: Array<string>;
     
-    private hideOpeningScreen() {
-        this.eventEmiterService.emitHideOpeningScreen({});
+    private updateWord(eventData):void {
+        this.word = eventData.word;
+        this.guessedWordArray.length = this.word.length;
+        this.guessedWordArray.fill('_')
+    }
+
+    private checkLetter(letter) {
+
     }
 
     constructor(
         private eventEmiterService: EventEmiterService
     ) {
-        
+        this.eventEmiterService.fetchedData.subscribe(eventData => this.updateWord(eventData));
     };
 }

@@ -1,6 +1,6 @@
-# Westernacher User panel app
+# Basic hanging game app
 
-An Angular2 administration panel built from the latest design trends and using the leading ecosystem libraries
+An Angular2 hanging game app built from the latest design trends and using the leading ecosystem libraries
 Compatible with:
 Chrome  Firefox   Edge    IE     Safari    iOS     Android             IE mobile
 latest  latest     14     11       10       10    Marshmallow (6.0)        11

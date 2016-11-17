@@ -52,7 +52,7 @@ export class CachingService {
         private eventEmiterService: EventEmiterService,
         private localStorageService: LocalStorageService
     ) {
-        this.knownWordsList = this.localStorageService.get('knownWords');
+        this.knownWordsList = this.localStorageService.get('knownWords') || [];
         this.eventEmiterService.fetchedData.subscribe(word => this.addWordToKnown(word));
     }
 }

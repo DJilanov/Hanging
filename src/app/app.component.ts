@@ -24,9 +24,12 @@ export class AppComponent {
     * @updateUser handle heart beat response
     * @options<object> Form data with user changes
     */
-    private getWord(knownWords) {
+    private getWord(eventData: Event):void {
+        let knownWords = this.cachingService.getKnownWords();
         if(this.heartBeatService.online) {
-            this.fetcher.getWord(knownWords).subscribe(
+            this.fetcher.getWord({
+                "knownWords": knownWords
+            }).subscribe(
                 response => this.fetchedWord(response.json()),
                 err => this.errorHandlerService.handleError(err)
             );

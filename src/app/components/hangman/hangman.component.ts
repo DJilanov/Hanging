@@ -10,7 +10,7 @@ import { EventEmiterService } from '../../services/event.emiter.service';
 export class HangmanComponent {
     
     private hangedCounter:number = 0;
-    private maxHangedCounter:number = 7;
+    private maxHangedCounter:number = 6;
 
     private increaseHanged(eventData: Event) {
         if(this.hangedCounter < this.maxHangedCounter) {

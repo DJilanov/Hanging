@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { EventEmiterService } from '../../services/event.emiter.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { EventEmiterService } from '../../services/event.emiter.service';
 export class GameScreenComponent {
 
     private word: string;
-    private guessedWordArray: Array<string>;
+    private guessedWordArray: Array<string> = [];
     
     private updateWord(eventData):void {
         this.word = eventData.word;
@@ -18,8 +18,23 @@ export class GameScreenComponent {
         this.guessedWordArray.fill('_')
     }
 
-    private checkLetter(letter) {
-
+    @HostListener('window:keydown', ['$event'])
+    private checkLetter(event):void {
+        // TODO: Do it better!!! This wont work everywhere
+        let letter = event.key;
+        let isRight = false;
+        // it means it is letter
+        if(event.which) {
+            for(let index = 0; index < this.word.length; index++) {
+                if (this.word[index] === letter) {
+                    this.guessedWordArray[index] = letter;
+                    isRight = true;
+                }
+            }
+            if(!isRight) {
+                this.eventEmiterService.emitIncreaseHanged({});
+            }
+        }
     }
 
     constructor(

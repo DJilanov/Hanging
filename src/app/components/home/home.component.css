@@ -16,3 +16,7 @@ opening-screen {
 game-screen {
     text-align: center;
 }
+
+[hidden] {
+   display: none!important;
+}

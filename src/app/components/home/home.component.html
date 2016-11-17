@@ -1,3 +1,11 @@
-<opening-screen *ngIf="showOpeningScreen"></opening-screen>
-<game-screen *ngIf="!showOpeningScreen" class="col-lg-8"></game-screen>
-<hangman *ngIf="!showOpeningScreen" class="col-lg-4"></hangman>
+<opening-screen 
+  [hidden]="!showOpeningScreen"
+  ></opening-screen>
+<game-screen 
+  [hidden]="showOpeningScreen"
+  class="col-lg-8"
+  ></game-screen>
+<hangman 
+  [hidden]="showOpeningScreen"
+  class="col-lg-4"
+  ></hangman>

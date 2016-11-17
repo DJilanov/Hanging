@@ -22,8 +22,7 @@
      */
     function getUnknownWord(req, res) {
         var differentWords = getUnknownWords(req.body['knownWords']);
-        // TODO: get one of the differentWords by random
-        var word = 'test';
+        var word = getRandomWord(differentWords);
         res.json({
             word: word.word,
             score: word.score,
@@ -44,7 +43,20 @@
      * @knownWords {Array} The known words
      */
     function getUnknownWords(knownWords) {
-        debugger;
+        var unknownWords = cache.getWords();
+        if(knownWords !== null) {
+            unknownWords = unknownWords.filter( function( el ) {
+              return knownWords.indexOf( el ) < 0;
+            } );
+        }
+        return unknownWords;
+    }
+    /**
+     * @getRandomWord Return random word
+     * @unknownWords {Array} The unknown words
+     */
+    function getRandomWord(unknownWords) {
+        return unknownWords[Math.floor(Math.random() * unknownWords.length)];;
     }
 
     /**
@@ -79,7 +91,8 @@
             });
         });
         // get database
-        mongoose.connect(config.dbAddress);
+        var dataBaseURL = config.dbAddress.replace('{{user}}', config.dbUser).replace('{{password}}', config.dbPassword);
+        mongoose.connect(dataBaseURL);
     }
 
     module.exports = {

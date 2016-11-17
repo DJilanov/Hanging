@@ -14,7 +14,7 @@ export class FetcherService {
     * @getUsers get all users
     * @return {Promise} http request
     */
-    public getWord(body:Array<Word>) {
+    public getWord(body) {
         return this.http.post( Config.getUnknownWord, body );
     }
     /**

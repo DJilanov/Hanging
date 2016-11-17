@@ -9,10 +9,13 @@ import { Config } from '../config';
  */
 export class EventEmiterService {
 
+    public hanged: EventEmitter<any>;
     public getWord: EventEmitter<any>;
     public workingOnline: EventEmitter<any>;
     public workingOffline: EventEmitter<any>;
     public fetchedData: EventEmitter<any>;
+    public increaseHanged: EventEmitter<any>;
+    public hideOpeningScreen: EventEmitter<any>;
     public showGameControllsModal: EventEmitter<any>;
 
     /**
@@ -48,18 +51,45 @@ export class EventEmiterService {
     }
 
     /**
-    * @emitWorkingOffline emit that server become offline
+    * @emitShowGameControllsModal show controlls modal
     * @data {Object} data to emit
     */
     public emitShowGameControllsModal(data):void {
         this.showGameControllsModal.emit(data);
     }
 
+    /**
+    * @emitHideOpeningScreen hide opening screen and start the game
+    * @data {Object} data to emit
+    */
+    public emitHideOpeningScreen(data):void {
+        this.hideOpeningScreen.emit(data);
+    }
+
+    /**
+    * @emitIncreaseHanged hang one more part ( increase hanged )
+    * @data {Object} data to emit
+    */
+    public emitIncreaseHanged(data):void {
+        this.increaseHanged.emit(data);
+    }
+
+    /**
+    * @emitHanged hang the person ( max hanged counter )
+    * @data {Object} data to emit
+    */
+    public emitHanged(data):void {
+        this.hanged.emit(data);
+    }
+
     constructor() {
+        this.hanged = new EventEmitter();
         this.getWord = new EventEmitter();
         this.fetchedData = new EventEmitter();
         this.workingOnline = new EventEmitter();
         this.workingOffline = new EventEmitter();
+        this.increaseHanged = new EventEmitter();
+        this.hideOpeningScreen = new EventEmitter();
         this.showGameControllsModal = new EventEmitter();
     }
 }

@@ -3,3 +3,12 @@ custom-header {
     background-image: linear-gradient(to right, #2065b9 0%, #55afe8 100%);
     padding: 20px;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+home {
+    min-height: 100%; 
+}

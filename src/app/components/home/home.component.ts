@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EventEmiterService } from '../../services/event.emiter.service';
 
 @Component({
     selector: 'home',
@@ -7,5 +8,16 @@ import { Component } from '@angular/core';
 })
 // will be screen into the router in the later stage
 export class HomeComponent {
-    constructor() {};
+
+    private showOpeningScreen: boolean = true;
+
+    private hideOpeningScreen(eventData:Event):void {
+        this.showOpeningScreen = false;
+    }
+
+    constructor(
+        private eventEmiterService: EventEmiterService
+    ) {
+        this.eventEmiterService.hideOpeningScreen.subscribe(eventData => this.hideOpeningScreen(eventData));
+    };
 }

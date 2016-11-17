@@ -15,17 +15,17 @@ export class GameControllsComponent {
     @ViewChild('gameControllsModal') private gameControllsModal;
 
     /**
-    * @showUserModal used to show the user modal with the data we sended to it
-    * @options {Object} user data
+    * @showGameControllsModal used to show the game controlls modal
+    * @eventData {Object} event data
     */
-    private showGameControllsModal(options):void {
+    private showGameControllsModal(eventData:Event):void {
         this.gameControllsModal.show();
     }
 
     /**
-    * @hideUserModal used to hide user modal
+    * @hideGameControllsModal used to hide game controlls modal
     */
-    private hideUserModal():void {
+    private hideGameControllsModal():void {
         this.gameControllsModal.hide();
     }
 
@@ -33,6 +33,6 @@ export class GameControllsComponent {
         private dictionary: Dictionary,
         private eventEmiterService: EventEmiterService
     ) {
-        this.eventEmiterService.showGameControllsModal.subscribe(options => this.showGameControllsModal(options));
+        this.eventEmiterService.showGameControllsModal.subscribe(eventData => this.showGameControllsModal(eventData));
     }
 }

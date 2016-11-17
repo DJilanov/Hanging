@@ -17,6 +17,13 @@ export class FetcherService {
     public getWord(body:Array<Word>) {
         return this.http.post( Config.getUnknownWord, body );
     }
+    /**
+    * @getUsers get all users
+    * @return {Promise} http request
+    */
+    public heartbeat() {
+        return this.http.get( Config.heartbeatUrl );
+    }
 
     constructor( 
         private http: Http 

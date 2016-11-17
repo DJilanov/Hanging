@@ -12,6 +12,8 @@ import { LocalStorageService, LOCAL_STORAGE_SERVICE_CONFIG } from 'angular-2-loc
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HangmanComponent } from './components/hangman/hangman.component';
+import { GameScreenComponent } from './components/game_screen/game_screen.component';
 import { OpeningScreenComponent } from './components/opening_screen/opening_screen.component';
 import { GameControllsComponent } from './components/game_controlls/game_controlls.component';
 
@@ -51,8 +53,10 @@ let localStorageServiceConfig = {
         AppComponent,
         HomeComponent,
         HeaderComponent,
-        GameControllsComponent,
-        OpeningScreenComponent
+        HangmanComponent,
+        GameScreenComponent,
+        OpeningScreenComponent,
+        GameControllsComponent
     ],
     // Bootstraping
     bootstrap: [ 

@@ -28,8 +28,6 @@ export class HeartBeatService {
         let self = this;
 		// we set the interval as hearthbeat calls
 		this.interval = setInterval(function(self) {
-            debugger;
-            console.log('test');
 			self.fetcher.heartbeat().subscribe(
 	            // Validate the input by the user model
 	            data => self.handleHeartbeat(data),

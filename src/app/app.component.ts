@@ -20,21 +20,6 @@ export class AppComponent {
 
     private word: Word;
 
-    constructor(
-        private fetcher: FetcherService,
-        private dictionary: Dictionary,
-        private toasterService: ToasterService,
-        private cachingService: CachingService,
-        private heartBeatService: HeartBeatService,
-        private eventEmiterService: EventEmiterService,
-        private errorHandlerService: ErrorHandlerService,
-        private localStorageService: LocalStorageService
-    ) {
-        // we start the heartbeating of the application
-        heartBeatService.setHeartbeat();
-        this.eventEmiterService.getWord.subscribe(knownWords => this.getWord(knownWords));
-    };
-
     /**
     * @updateUser handle heart beat response
     * @options<object> Form data with user changes
@@ -75,4 +60,19 @@ export class AppComponent {
         this.word = <Word>word;
         this.eventEmiterService.emitFetchedData(this.word);
     }
+
+    constructor(
+        private fetcher: FetcherService,
+        private dictionary: Dictionary,
+        private toasterService: ToasterService,
+        private cachingService: CachingService,
+        private heartBeatService: HeartBeatService,
+        private eventEmiterService: EventEmiterService,
+        private errorHandlerService: ErrorHandlerService,
+        private localStorageService: LocalStorageService
+    ) {
+        // we start the heartbeating of the application
+        heartBeatService.setHeartbeat();
+        this.eventEmiterService.getWord.subscribe(knownWords => this.getWord(knownWords));
+    };
 }
